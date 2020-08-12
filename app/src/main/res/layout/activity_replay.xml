@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto">
     xmlns:android="http://schemas.android.com/apk/res/android" />
 <RelativeLayout
 
@@ -11,13 +12,35 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
+    <ImageView
+        android:id="@+id/imageView11"
+        shimmer:layout_constraintEnd_toEndOf="parent"
+        shimmer:layout_constraintStart_toStartOf="parent"
+        shimmer:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_rectangle_12" />
+
+    <ImageView
+        android:id="@+id/back_post2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_alignParentStart="false"
         android:layout_alignParentRight="true"
+        android:layout_below="@id/imageView11"
         android:layout_centerVertical="false"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="17dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="2dp"
         android:orientation="horizontal">
@@ -25,6 +48,7 @@
         <ImageView
             android:id="@+id/report"
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
             android:src="@drawable/ic_report_problem_black_24dp"
             android:visibility="gone" />
@@ -57,10 +81,17 @@
         app:srcCompat="@drawable/ic_more_horiz_black_24dp" />
 
 
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/post_text"
+        android:background="?android:attr/listDivider" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/post_text">
+        android:layout_below="@id/divider">
 
 
         <RelativeLayout
@@ -69,9 +100,19 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp">
-
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/post_icon2"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_below="@id/replay_recycler"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/ic_user"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="1dp" />
             <EditText
                 android:id="@+id/replay_edt_box"
+                android:layout_toRightOf="@id/post_icon2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/replay_recycler"
@@ -80,13 +121,15 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="10dp"
                 android:layout_toLeftOf="@id/rep"
-                android:background="@drawable/edt_bg"
+                android:background="@drawable/ic_edit"
                 android:ems="10"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:gravity="start|top"
                 android:hint="Write A Replay..."
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:paddingStart="16dp"
+                android:paddingTop="5dp" />
 
             <TextView
                 android:id="@+id/rep"
@@ -99,7 +142,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@color/colorPrimary2"
+                android:background="@drawable/ic_yes"
                 android:gravity="center_horizontal"
                 android:padding="5dp"
                 android:text="Replay"
@@ -127,8 +170,9 @@
         android:id="@+id/post_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/imageView11"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_toRightOf="@id/post_icon"
         android:text="Masum Hossain"
         android:textColor="#181717"
@@ -140,9 +184,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/post_name"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="30dp"
         android:layout_toRightOf="@id/post_icon"
-        android:background="@drawable/round_rect"
         android:padding="5dp"
         android:text="ance I wanna growup once Again"
         android:textColor="#1B1919" />
@@ -151,11 +195,23 @@
         android:id="@+id/post_icon"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:layout_below="@id/imageView11"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:src="@drawable/ic_user"
         app:civ_border_color="#FF000000"
         app:civ_border_width="1dp" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@id/back_post2"
+        android:text="Replies"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp" />
 
 </RelativeLayout>
 </ScrollView>

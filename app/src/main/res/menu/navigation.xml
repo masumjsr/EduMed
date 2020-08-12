@@ -3,22 +3,22 @@
 
     <item
         android:id="@+id/feed"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/home_selector"
         android:title="Home" />
     <item
         android:id="@+id/test"
-        android:icon="@drawable/ic_course"
-        android:title="Our Courses" />
+        android:icon="@drawable/play_selector"
+        android:title="Courses" />
     <item
         android:id="@+id/live"
-        android:icon="@drawable/ic_practice"
-        android:title="Practice" />
-    <item
-        android:id="@+id/notification"
-        android:icon="@drawable/ic_notification"
-        android:title="Notification" />
+        android:icon="@drawable/tips_selector"
+        android:title="Tips" />
     <item
         android:id="@+id/profile"
-        android:icon="@drawable/ic_account_circle_black_24dp"
-        android:title="Profile" />
+        android:icon="@drawable/exam_selector"
+        android:title="Exam" />
+    <item
+        android:id="@+id/notification"
+        android:icon="@drawable/notificaion_selector"
+        android:title="Notification" />
 </menu>

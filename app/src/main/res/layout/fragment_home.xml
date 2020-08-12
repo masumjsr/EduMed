@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="?attr/actionBarSize"
-    android:background="#fff"
+    android:background="#f1f1f1"
     android:focusable="true"
     android:focusableInTouchMode="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -40,14 +40,17 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/posting_part"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/post_edit"
+                        android:layout_below="@id/toolbar_bottom"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/ic_border"
                             android:orientation="vertical"
                             android:padding="10dp">
 
@@ -55,8 +58,10 @@
                                 android:id="@+id/textView9"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center_horizontal"
-                                android:text="Admin Notice" />
+                                android:drawableLeft="@drawable/admin"
+                                android:drawablePadding="5dp"
+                                android:text="Admin Notice"
+                                android:textColor="#FE6464" />
 
                             <TextView
                                 android:id="@+id/pin_title"
@@ -74,13 +79,6 @@
                                 android:layout_marginEnd="10dp" />
 
                         </LinearLayout>
-
-                        <View
-                            android:id="@+id/divider"
-                            android:layout_width="match_parent"
-                            android:layout_height="10dp"
-                            android:layout_marginTop="8dp"
-                            android:background="#40707070" />
 
                         <LinearLayout
                             android:id="@+id/pin"
@@ -100,7 +98,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginTop="15dp"
-                                android:background="#EBECFF">
+                                android:background="#FFFFFF">
 
                                 <ImageView
                                     android:id="@+id/more"
@@ -211,7 +209,7 @@
                                                     android:layout_marginLeft="5dp"
                                                     android:gravity="center"
                                                     android:text="-"
-                                                    android:textColor="#000000"
+                                                    android:textColor="#2c2c2c"
                                                     android:textSize="18sp"
                                                     android:textStyle="bold" />
                                             </LinearLayout>
@@ -256,7 +254,7 @@
                                                     android:layout_marginStart="5dp"
                                                     android:gravity="center"
                                                     android:text="-"
-                                                    android:textColor="#000000"
+                                                    android:textColor="#2c2c2c"
                                                     android:textSize="18sp"
                                                     android:textStyle="bold" />
                                             </LinearLayout>
@@ -339,12 +337,6 @@
                                     android:text="..."
                                     android:textSize="10sp" />
 
-                                <View
-                                    android:id="@+id/divider2"
-                                    android:layout_width="0dp"
-                                    android:layout_height="5dp"
-                                    android:layout_marginTop="8dp"
-                                    android:background="#40707070" />
 
                                 <de.hdodenhof.circleimageview.CircleImageView
                                     android:id="@+id/post_icon"
@@ -369,20 +361,24 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:background="#f1f1f1">
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/recycler_view"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:background="#F1F1F1"
                                 android:nestedScrollingEnabled="false"
-                                tools:layout_editor_absoluteY="530dp" />
+                                tools:layout_editor_absoluteY="530dp"
+                                tools:listitem="@layout/post" />
 
                             <ProgressBar
                                 android:id="@+id/progressBar2"
                                 style="?android:attr/progressBarStyle"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:visibility="visible"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent" />
@@ -422,41 +418,57 @@
                         </com.facebook.shimmer.ShimmerFrameLayout>
 
                         <Button
-                            android:visibility="gone"
                             android:id="@+id/more"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/app_name" />
+                            android:text="@string/app_name"
+                            android:visibility="gone" />
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/post_edit"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/toolbar_bottom"
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_toRightOf="@id/profile"
-                        android:background="@drawable/edt_bg"
-                        android:ems="10"
-                        android:focusable="false"
+                        android:layout_height="100dp"
+                        android:background="@drawable/ic_tool_bottom_bg"
+                        android:orientation="horizontal">
 
-                        android:focusableInTouchMode="false"
-                        android:hint="Write Something..."
-                        android:inputType="textPersonName"
-                        android:maxLines="10"
-                        android:nextFocusLeft="@id/post_edit"
-                        android:nextFocusUp="@id/post_edit" />
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profile"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginBottom="8dp"
+                            android:src="@drawable/ic_user"
+                            app:civ_border_color="#FF000000"
+                            app:civ_border_width="1dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/profile"
-                        android:layout_width="42dp"
-                        android:layout_height="42dp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="10dp"
-                        android:src="@drawable/ic_user"
-                        app:civ_border_color="#FF000000"
-                        app:civ_border_width="1dp" />
+                        <TextView
+                            android:id="@+id/post_edit"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="8dp"
+
+                            android:background="@drawable/ic_edit_bg"
+                            android:ems="10"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:gravity="center_vertical"
+                            android:hint="Write Something..."
+                            android:inputType="textPersonName"
+                            android:maxLines="10"
+                            android:nextFocusLeft="@id/post_edit"
+                            android:nextFocusUp="@id/post_edit"
+                            android:paddingStart="10dp"
+                            android:textColorHint="#5F79BE"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/profile"
+                            app:layout_constraintTop_toTopOf="@+id/profile" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </RelativeLayout>
             </LinearLayout>

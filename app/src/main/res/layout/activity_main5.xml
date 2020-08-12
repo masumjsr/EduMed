@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Main5Activity">
 
-    <com.freelancing.x.ExpandableTextView
+    <com.edu.med.ExpandableTextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

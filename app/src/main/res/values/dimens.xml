@@ -19,4 +19,7 @@
     <dimen name="text_20">20dp</dimen>
     <dimen name="text_16">16dp</dimen>
     <dimen name="ans_height">30dp</dimen>
+
+    <dimen name="sndtrdimage">55dp</dimen>
+    <dimen name="fstimage">75dp</dimen>
 </resources>

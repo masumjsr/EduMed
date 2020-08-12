@@ -9,7 +9,7 @@
     android:clickable="true">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView"
+        android:id="@+id/icon"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_gravity="center_vertical"
